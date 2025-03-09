@@ -8,12 +8,13 @@ import createVoteCollection from "./vote.collection";
 export default async function getOrCreateDB() {
     try {
         await databases.get(db)
-        console.log("database connected");
+        console.log("Database connected");
         
     } catch (error) {
        try {
            await databases.create(db, db)
            console.log("database created");
+           //create collection
            await Promise.all([
                createAnswerCollection(),
                createQuestionCollection(),

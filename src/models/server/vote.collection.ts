@@ -10,14 +10,14 @@ export default async function createVoteCollection() {
 
     // crearting attributes and indexes
 
-    await Promise.all(
-        [   databases.createEnumAttribute(db, voteCollection, "type", ["question", "answer"], true),
-            databases.createStringAttribute(db, voteCollection, "content", 10000, true),
+    await Promise.all([
+            databases.createEnumAttribute(db, voteCollection, "type", ["question", "answer"], true),
+             
             databases.createStringAttribute(db, voteCollection, "typeId", 50, true),
             databases.createEnumAttribute(db, voteCollection, "voteStatus", ["upvoted","downVoted"], true),
             databases.createStringAttribute(db, voteCollection, "voteById", 50, true),]
     )
-    console.log("vote Attribute created");
+    console.log("Vote Attribute Created");
     
     
 }

@@ -1,6 +1,5 @@
 import { account } from "@/models/client/config";
 import { AppwriteException, ID, Models } from "appwrite";
-import { error } from "console";
 import { create } from "zustand";
 
 
@@ -45,7 +44,7 @@ export const useAuthStore = create<IAuthStore>()(
             session: null, jwt: null, user: null, hydrated: false,
             
             setHydarted() { set({ hydrated: true }) },
-            
+
             async verifySession() {
                 try {
                     const session = await account.getSession("current")
@@ -71,9 +70,8 @@ export const useAuthStore = create<IAuthStore>()(
                     console.log(error);
                         return {
                             success: false,
-                            error: error instanceof AppwriteException ? error : null
+                            error: error instanceof AppwriteException ? error : null,
                             
-
                     }
                 }
             },
